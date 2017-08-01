@@ -1,0 +1,113 @@
+﻿<form class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Subject</label>
+        <div class="controls">
+            <select>
+                <option>General Comment</option>
+                <option>Alarm Comment</option>
+                <option>Exception Comment</option>
+                <option>Oil Change</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Feedback Posted By</label>
+        <div class="controls">
+            <input type="text" class="textbox input-medium" data-provide="typeahead" data-items="4" value="Joe Citizen"
+                data-source="[&quot;Barney Rubble&quot;,&quot;Donald Duck&quot;,&quot;Fred Flintstone&quot;,&quot;Jack Jones&quot;,&quot;Jane Citizen&quot;,&quot;Jill Jones&quot;,&quot;Joe Citizen&quot;,&quot;Michael Mouse&quot;,&quot;Wilma Flintstone&quot;]">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Meter Reading</label>
+        <div class="controls">
+            <input type="text" class="textbox input-mini" placeholder="Meter Reading" />
+            <div class="input-append">
+                <input type="text" class="textbox input-small datepicker" placeholder="Last Reading" />
+                <span class="add-on"><i class="icon-calendar"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Fluid Change</label>
+        <div class="controls">
+            <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn">Yes</button>
+                <button type="button" class="btn btn-success active">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Filter Change</label>
+        <div class="controls">
+            <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn">Yes</button>
+                <button type="button" class="btn btn-success active">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Customer Severity Rating</label>
+        <div class="controls">
+            <select>
+                <option>Normal</option>
+                <option>Low</option>
+                <option>Moderate</option>
+                <option>Urgent</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Feedback Visibility</label>
+        <div class="controls">
+            <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn btn-success active">Internal Comment</button>
+                <button type="button" class="btn">Send To Lab</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Attach a File</label>
+        <div class="controls">
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <span class="btn btn-file" title="Only the following files are allowed - .doc(x), .txt, .pdf"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                <span class="fileupload-preview"></span>
+                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Description</label>
+        <div class="controls">
+            <textarea class="span8 richtext" id="articlebody"></textarea>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(function () {
+
+        $(".btn-toggle").click(function () {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("btn-success").html("No");
+            } else {
+                $(this).addClass("btn-success").html("Yes");
+            }
+        });
+
+        $(".btn-toggle-radio button").click(function () {
+            $(this).siblings().removeClass("active btn-success");
+            $(this).addClass("active btn-success");
+        });
+
+    });
+</script>

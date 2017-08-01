@@ -1,0 +1,395 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+    <link href="~/css/KendoUI/kendo.common.min.css" rel="stylesheet" />
+    <script src="~/js/KendoUI/kendo.all.min.js"></script>
+}
+
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a><span class="divider">/</span></li>
+    <li class="active">Dashboard</li>
+</ul>
+
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        <div class="span2 offset10">
+            <button id="showcriteria" class="btn btn-info">Show Criteria</button>
+            <button id="showlayout" class="btn btn-info">Show Layout</button>
+        </div>
+    </div>
+
+    <div class="row-fluid" style="height: 310px;">
+
+        <div class="span12 barchart shaded" style="height: 300px;"></div>
+
+    </div>
+
+    <div class="row-fluid" style="height: 310px;">
+
+        <div class="span4 piechart shaded" style="height: 300px;"></div>
+        <div class="span4 areachart shaded" style="height: 300px;"></div>
+
+    </div>
+
+    <div class="row-fluid" style="height: 310px;">
+        <div class="span12 linechart shaded" style="height: 300px;"></div>
+    </div>
+
+    <div class="row-fluid" style="height: 310px;">
+
+        <div class="span6 linechart shaded" style="height: 300px;"></div>
+        <div class="span6 barchart" style="height: 300px;"></div>
+
+    </div>
+</div>
+
+
+<div class="modal hide fade" id="criteriadialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Modify The Criteria</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Companies</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                        <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Units</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                        <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Compartments</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                        <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Severity</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                        <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Problem Codes</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                        <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span8 control-group">
+                <label class="control-label fields" for="unitid">Date Value</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="From Date" />
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>
+                    &nbsp; 
+                    <div class="input-append">
+                        <input type="text" class="textbox input-small" placeholder="To Date" />
+                        <span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-link">Clear</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+
+<div class="modal hide fade" id="layoutdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Change Widget Layout</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+
+            <div class="control-group">
+                <label class="control-label fields" for="unitid">Order</label>
+                <div class="controls">
+                    <select class="span1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label fields" for="unitid">Size</label>
+                <div class="controls">
+                    <select class="span2">
+                        <option>1/3 page width</option>
+                        <option>1/2 page width</option>
+                        <option>2/3 page width</option>
+                        <option>Full page width</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label fields" for="unitid">Widget Visibility</label>
+                <div class="controls">
+                    <button id="showwidget" type="button" class="btn btn-success" data-toggle="button">Visible</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-link">Clear</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        $("[title]").tooltip();
+
+        $("#showcriteria").click(function () {
+            $("#criteriadialog")
+                .draggable()
+                .css({ "width": "700px", "margin-left": "-350px" })
+                .modal("show");
+        });
+
+        $("#showwidget").click(function () {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("btn-success").addClass("btn-warning").html("Hidden");
+            } else {
+                $(this).removeClass("btn-warning").addClass("btn-success").html("Visible");
+            }
+        });
+
+        $("#showlayout").click(function () {
+            $("#layoutdialog").modal("show");
+        });
+        //piechart
+        $(".piechart").kendoChart({
+            title: {
+                text: "Condition Summary"
+            },
+            legend: {
+                position: "top"
+            },
+            seriesDefaults: {
+                labels: {
+                    template: "#= category # - #= kendo.format('{0:P}', percentage)#",
+                    position: "outsideEnd",
+                    visible: true,
+                    background: "transparent"
+                }
+            },
+            series: [{
+                type: "pie",
+                data: [{
+                    category: "Normal",
+                    value: 62
+                }, {
+                    category: "Abnormal",
+                    value: 18
+                }, {
+                    category: "Caution",
+                    value: 17
+                }, {
+                    category: "Severe",
+                    value: 4
+                }]
+            }],
+            tooltip: {
+                visible: true,
+                template: "#= category # - #= kendo.format('{0:P}', percentage) #"
+            },
+            seriesClick: function (e) {
+                alert("You clicked the pie chart");
+            }
+        });
+
+        //barchart
+        $(".barchart").kendoChart({
+            title: {
+                text: "Problem Summary"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "column"
+            },
+            series: [{
+                name: "Oil",
+                data: [56000, 63000, 74000, 91000, 117000, 138000]
+            }, {
+                name: "Wear",
+                data: [51000, 58000, 69000, 86000, 112000, 133000]
+            }, {
+                name: "Huile",
+                data: [46000, 53000, 64000, 81000, 107000, 128000]
+            }, {
+                name: "Usure",
+                data: [41000, 48000, 59000, 76000, 102000, 123000]
+            }, {
+                name: "ISO",
+                data: [36000, 43000, 54000, 71000, 97000, 118000]
+            }],
+            valueAxis: {
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}"
+            }
+        });
+
+        //linechart
+        $(".linechart").kendoChart({
+            title: {
+                text: "Condition Summary"
+            },
+            legend: {
+                position: "bottom"
+            },
+            chartArea: {
+                background: ""
+            },
+            seriesDefaults: {
+                type: "line"
+            },
+            series: [{
+                name: "Normal",
+                data: [22, 34, 23, 11, 38, 33]
+            }, {
+                name: "Abnormal",
+                data: [1, 4, 2, 3, 6, 8]
+            }, {
+                name: "Caution",
+                data: [12, 4, 8, 2, 9, 5]
+            }, {
+                name: "Severe",
+                data: [2, 3, 1, 5, 4, 3]
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0}%"
+                },
+                line: {
+                    visible: false
+                },
+                axisCrossingValue: -10
+            },
+            categoryAxis: {
+                categories: ["January", "February", "March", "April", "May", "June"],
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}%",
+                template: "#= series.name #: #= value #"
+            }
+        });
+
+        //areachart
+        $(".areachart").kendoChart({
+            title: {
+                text: "Compartment Summary"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "area"
+            },
+            series: [{
+                name: "Diesel Engine",
+                data: [70, 23, 45, 12, 45]
+            }, {
+                name: "Hydraulics",
+                data: [20, 20, 20, 20, 20]
+            }, {
+                name: "Differential",
+                data: [30, 10, 30, 10, 20]
+            }, {
+                name: "Transmission",
+                data: [40, 40, 10, 5, 5]
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0}"
+                },
+                line: {
+                    visible: false
+                },
+                axisCrossingValue: -10,
+                max: 80
+            },
+            categoryAxis: {
+                categories: ["January", "February", "March", "April", "May"],
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}",
+                template: "#= series.name #: #= value #"
+            }
+        });
+
+    });
+
+</script>
+

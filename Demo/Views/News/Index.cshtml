@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "News Articles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #news-nav {
+        margin-top: 30px;
+    }
+</style>
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li class="active">News Articles</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div id="news-nav" class="span2 clear-fix">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#global">Global Deals</a></li>
+                <li><a href="#technical">Technical Bulletins</a></li>
+                <li><a href="#guides">Guides and Manuals</a></li>
+                <li><a href="#maintenance">Maintenance</a></li>
+            </ul>
+        </div>
+        <div id="scroll-content" class="span10">
+            <div id="global">
+                <h1>Global Deals</h1>
+                @{var i = 0;
+                  var totalarticles = 5;
+
+                  while (i < totalarticles)
+                  {
+                      i += 1;
+                    <h4><a href="#">News Article Title #@i</a></h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                  }
+                }
+            </div>
+            <div id="technical">
+                <h1>Technical Bulletins</h1>
+                @{
+                    i = 0;
+                    while (i < totalarticles)
+                    {
+                        i += 1;
+                    <h4><a href="#">News Article Title #@i</a></h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                    }
+                }
+            </div>
+            <div id="guides">
+                <h1>Guides and Manuals</h1>
+                @{
+                    i = 0;
+                    while (i < totalarticles)
+                    {
+                        i += 1;
+                    <h4><a href="#">News Article Title #@i</a></h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                    }
+                }
+            </div>
+            <div id="maintenance">
+                <h1>Maintenance</h1>
+                @{
+                    i = 0;
+                    while (i < totalarticles)
+                    {
+                        i += 1;
+                    <h4><a href="#">News Article Title #@i</a></h4>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="editdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">News Article Title #1</h3>
+    </div>
+    <div class="modal-body">
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("body").scrollspy({ target: "#news-nav" });
+
+        $("h4").click(function () {
+            $(".modal-body").css({ "height": "360px" });
+            $("#editdialog")
+                .draggable()
+                .css({ "width": "900px", "height": "450px", "margin-left": "-450px" })
+                .modal("show");
+        });
+    });
+</script>

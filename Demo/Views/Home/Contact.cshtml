@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li class="active">Contact Us</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span5 offset3">
+            <form id="logoncredentials" name="logoncredentials" action="/" method="post" class="shaded rounded-border form-horizontal">
+                <fieldset>
+                    <legend>Contact Us</legend>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Name</label>
+                        <div class="controls">
+                            <input type="text" id="name" name="name" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Phone</label>
+                        <div class="controls">
+                            <input type="text" id="email" name="email" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Email Address</label>
+                        <div class="controls">
+                            <input type="text" class="span6" id="email" name="email" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Subject</label>
+                        <div class="controls">
+                            <input type="text" class="span10" id="subject" name="subject" placeholder="Reason for Contact">
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Upload Files</label>
+                        <div class="controls">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <span class="btn btn-file" title="Only the following files are allowed - .pdf"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                <span class="fileupload-preview"></span>
+                                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Select a Lab</label>
+                        <div class="controls">
+                            <a href="#" class="btn btn-warning btn-open-map">No Lab Selected Yet</a>
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <label class="control-label" for="Username">Comment</label>
+                        <div class="controls">
+                            <textarea id="comment" name="comment" rows="6" class="span12"></textarea>
+                        </div>
+                    </div>
+                    <div class="row-fluid control-group">
+                        <div class="controls pull-right">
+                            <button class="btn btn-link">Clear</button>
+                            <button class="btn">Cancel</button>
+                            <button class="btn btn-primary"><i class="icon-envelope"></i>Send</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+</div>
+
+</div>
+
+<div class="modal hide fade" id="lookupdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Upload Files</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<div class="modal hide fade" id="mapdialog">
+    <img src="~/img/continent-map.gif" />
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Send</button>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#logoncredentials").on("submit", function (e) {
+            e.preventDefault();
+            toastr.success("Your password has been reset and emailed to you.<br><br>Check your email and following the instructions.", "Webtrieve9 Says")
+        });
+
+        $("#btn-upload-files").click(function () {
+            $("#lookupdialog")
+                .draggable()
+                .modal("show");
+        });
+
+        $(".btn-open-map").click(function () {
+            $(this).removeClass("btn-warning").text("Brisbane, Australia").addClass("btn-success");
+            $("#mapdialog").modal("show");
+        });
+    });
+</script>

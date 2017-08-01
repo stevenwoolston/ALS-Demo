@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "GraphicalAnalysis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a><span class="divider">/</span></li>
+    <li class="active">Graphical Analysis</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="span12" style="height: 600px; background: url('http://fblog.futurebrand.com/wp-content/uploads/2013/05/FBI-graph-google.png') no-repeat;">&nbsp;</div>
+        </div>
+        <div class="span6 nav nav-list rounded-border">
+            <form id="analysisform" method="get" name="analysisform">
+                <legend><i class="icon-lightbulb"></i>&nbsp;Analysis Package Details</legend>
+                <div class="row-fluid">
+                    <div class="span3">Package Name</div>
+                    <div class="span4">
+                        <select>
+                            <option>Fixed Plant Sites</option>
+                            <option>Mobile Sites</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-plus-sign"></i>New Package</button>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3">X-Axis</div>
+                    <div class="span4">
+                        <select>
+                            <option>Unit Age</option>
+                            <option>SIF No</option>
+                            <option>Fluid Age</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3">Y-Axis</div>
+                    <div class="span4">
+                        <select>
+                            <option>Iron</option>
+                            <option>Unit Age</option>
+                            <option>Fluid Age</option>
+                        </select>
+                    </div>
+                </div>
+                <legend></legend>
+                <div class="row-fluid">
+                    <div class="span3 abnormal">Series 1</div>
+                    <div class="span4">
+                        <select>
+                            <option>Select a Series</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-search"></i>Refine</button>
+                        <button class="btn"><i class="icon-remove"></i>Clear</button>
+                        <div class="btn-group">
+                            <button class="btn"><i class="icon-cloud-download"></i>&nbsp;Export As XML</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export As CSV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3 severe">Series 2</div>
+                    <div class="span4">
+                        <select>
+                            <option>Select a Series</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-search"></i>Refine</button>
+                        <button class="btn"><i class="icon-remove"></i>Clear</button>
+                        <div class="btn-group">
+                            <button class="btn"><i class="icon-cloud-download"></i>&nbsp;Export As XML</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export As CSV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3 normal">Series 3</div>
+                    <div class="span4">
+                        <select>
+                            <option>Select a Series</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-search"></i>Refine</button>
+                        <button class="btn"><i class="icon-remove"></i>Clear</button>
+                        <div class="btn-group">
+                            <button class="btn"><i class="icon-cloud-download"></i>&nbsp;Export As XML</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export As CSV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3 caution">Series 4</div>
+                    <div class="span4">
+                        <select>
+                            <option>Select a Series</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-search"></i>Refine</button>
+                        <button class="btn"><i class="icon-remove"></i>Clear</button>
+                        <div class="btn-group">
+                            <button class="btn"><i class="icon-cloud-download"></i>&nbsp;Export As XML</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export As CSV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span3">Series 5</div>
+                    <div class="span4">
+                        <select>
+                            <option>Select a Series</option>
+                        </select>
+                    </div>
+                    <div class="span5">
+                        <button class="btn"><i class="icon-search"></i>Refine</button>
+                        <button class="btn"><i class="icon-remove"></i>Clear</button>
+                        <div class="btn-group">
+                            <button class="btn"><i class="icon-cloud-download"></i>&nbsp;Export As XML</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export As CSV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button class="btn btn-link">Clear</button>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;View Package Results</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/search/searchresults/coy/"><i class="icon-save"></i>&nbsp;Save Package</a></li>
+                                <li><a href="/search/searchresults/unit/"><i class="icon-edit"></i>&nbsp;Rename Package</a></li>
+                                <li><a href="/search/searchresults/unit/"><i class="icon-remove"></i>&nbsp;Delete Package</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

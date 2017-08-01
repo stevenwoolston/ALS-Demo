@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "Custom Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a><span class="divider">/</span></li>
+    <li class="active">Search</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6">
+            <form class="form-horizontal" id="searchform" action="/search/searchresults/smpl" method="post" name="searchform">
+                <table class="table table-striped table-bordered" id="company-criteria">
+                    <thead>
+                        <tr>
+                            <td style="background-color: #ff0000" class="pri-fg-colour">Company Criteria</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label fields" for="unitid">Company Name&nbsp;<i class="icon-remove-sign"></i></label>
+                                    <div class="controls">
+                                        <div class="input-append">
+                                            <input type="text" class="textbox" placeholder="Company Name" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered" id="unit-criteria">
+                    <thead>
+                        <tr>
+                            <td style="background-color: #000aff" class="pri-fg-colour">Unit Criteria</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label fields" for="unitid">Unit ID&nbsp;<i class="icon-remove-sign"></i></label>
+                                    <div class="controls">
+                                        <div class="input-append">
+                                            <input type="text" class="textbox input-small" placeholder="No selections" />
+                                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label fields" for="unitid">Unit Model&nbsp;<i class="icon-remove-sign"></i></label>
+                                    <div class="controls">
+                                        <div class="input-append">
+                                            <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered" id="compartment-criteria">
+                    <thead>
+                        <tr>
+                            <td style="background-color: #7b8f2b" class="pri-fg-colour">Compartment Criteria</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No criteria added
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered rounded-corners" id="sample-criteria">
+                    <thead>
+                        <tr>
+                            <td style="background-color: #00e0ff" class="pri-fg-colour">Sample Criteria</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label fields" for="unitid">Date Diagnosed&nbsp;<i class="icon-remove-sign"></i></label>
+                                    <div class="controls">
+                                        <div class="input-append">
+                                            <input type="text" class="textbox input-small" placeholder="From Date" />
+                                            <span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                        &nbsp; 
+                                        <div class="input-append">
+                                            <input type="text" class="textbox input-small" placeholder="To Date" />
+                                            <span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label fields" for="unitid">SIF No&nbsp;<i class="icon-remove-sign"></i></label>
+                                    <div class="controls">
+                                        <input type="text" class="textbox input-small" placeholder="SIF No" />
+                                        to 
+                                        <input type="text" class="textbox input-small" placeholder="End of Range" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button class="btn btn-link">Clear</button>
+                        <div class="btn-group">
+                            <button class="btn btn-info">Save This Search</button>
+                            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-search"></i>&nbsp;Save As Another Name</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;View Sample List</button>
+                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/search/searchresults/coy/"><i class="icon-search"></i>&nbsp;View Company List</a></li>
+                                <li><a href="/search/searchresults/unit/"><i class="icon-search"></i>&nbsp;View Unit List</a></li>
+                                <li><a href="/search/searchresults/cmpt/"><i class="icon-search"></i>&nbsp;View Compartment List</a></li>
+                                <li><a href="/search/searchsummary/"><i class="icon-search"></i>&nbsp;View Search Summary</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/report/management/"><i class="icon-plus-sign"></i>&nbsp;View as Management Report</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="span6 search-criteria-wrap">
+
+            <ul class="nav nav-tabs" id="SearchTabs">
+                <li><a href="#analysis-selector" data-toggle="tab">Graphical Analysis Search Criteria</a></li>
+                <li><a href="#common-selector" data-toggle="tab">Saved Searches</a></li>
+                <li><a href="#company-selector" data-toggle="tab">Company</a></li>
+                <li><a href="#unit-selector" data-toggle="tab">Unit</a></li>
+                <li><a href="#compartment-selector" data-toggle="tab">Compartment</a></li>
+                <li><a href="#sample-selector" data-toggle="tab">Sample</a></li>
+            </ul>
+
+            <div class="tab-content rounded-border">
+                <div class="tab-pane" id="analysis-selector">
+                    <div class="btn-group">
+                        <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Fixed Plant Sites</button>
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-edit"></i>&nbsp;Rename Search</a></li>
+                            <li><a href="#"><i class="icon-remove-sign"></i>&nbsp;Delete Search</a></li>
+                        </ul>
+                        <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Mobile Sites</button>
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-edit"></i>&nbsp;Rename Search</a></li>
+                            <li><a href="#"><i class="icon-remove-sign"></i>&nbsp;Delete Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="common-selector">
+                    <div class="btn-group">
+                        <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Best Compartment Search</button>
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-edit"></i>&nbsp;Rename Search</a></li>
+                            <li><a href="#"><i class="icon-remove-sign"></i>&nbsp;Delete Search</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Ipsum Lorem Saved Search</button>
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-edit"></i>&nbsp;Rename Search</a></li>
+                            <li><a href="#"><i class="icon-remove-sign"></i>&nbsp;Delete Search</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="tab-pane active" id="company-selector">
+                    No selections available
+                </div>
+                <div class="tab-pane" id="unit-selector">
+                    <button class="btn criteria"><i class="icon-plus-sign"></i>&nbsp;Make</button>
+                    <button class="btn criteria"><i class="icon-plus-sign"></i>&nbsp;Serial Number</button>
+                    <button class="btn criteria"><i class="icon-plus-sign"></i>&nbsp;Site</button>
+                    <button class="btn criteria"><i class="icon-plus-sign"></i>&nbsp;Year of Manufacture</button>
+                </div>
+                <div class="tab-pane" id="compartment-selector">
+                    No selections available
+                </div>
+                <div class="tab-pane" id="sample-selector">
+                    No selections available
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="lookupdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Lookup Data</h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_Lookup");
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+        $('#SearchTabs a[href="#unit-selector"]').tab("show");
+        $("[title]").tooltip();
+        $(".criteria").attr("title", "Click here to add to the search").tooltip();
+        $(".fields").attr("title", "Click here to remove this from your search").tooltip();
+
+        $(".btn-lookup").click(function () {
+            var dataTable = $(".datatable").dataTable({
+                "sPaginationType": "full_numbers",
+                "bProcessing": true,
+                "bServerSide": false,
+                "sDom": 'RC<"clear">lfrtip'
+            });
+            $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+            $("#lookupdialog .datatable").css({ "width": "100%" });
+
+            $("#lookupdialog")
+                .draggable()
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+
+            $("#lookupdialog .modal-body").css({ "min-height": "590px" });
+
+        });
+    });
+
+</script>
+

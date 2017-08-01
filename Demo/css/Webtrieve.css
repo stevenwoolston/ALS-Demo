@@ -1,0 +1,245 @@
+@import url(http://fonts.googleapis.com/css?family=Kite+One);
+/*	Variables */
+/*	backgrounds */
+/*	font colours */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000318}}
+.pri-bg-colour {
+  background-color: #093e5b !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000321}}
+.sec-bg-colour {
+  background-color: #161e86; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000324}}
+.third-bg-colour {
+  background-color: #f37021; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000327}}
+.fourth-bg-colour {
+  background-color: #867e16; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000331}}
+.pri-fg-colour {
+  color: #cfebfa !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000334}}
+.sec-fg-colour {
+  color: #e9e179; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000338}}
+.navbar {
+  margin-bottom: 0px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000342}}
+a {
+  color: #093e5b;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000346}}
+.footer a {
+  color: #cfebfa;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000350}}
+a.underline {
+  text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000353}}
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+  color: #ffffff !important;
+  background-color: #006dcc !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000357}}
+.nav-pills > li > a:hover, .nav-pills > li > a:focus {
+  color: #ffffff !important;
+  background-color: #093e5b !important; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000361}}
+.topnavbar {
+  background-color: #093e5b;
+  background-image: url("/img/header-bg.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-top: 30px;
+  height: 100px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000369}}
+.topnavbar .brand-container, .system-nav {
+  margin-top: -20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000372}}
+.menu-bar {
+  padding-top: 20px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000375}}
+.nav-container {
+  padding-top: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000378}}
+.system-nav a {
+  color: #cfebfa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000382}}
+.paging_full_numbers a {
+  background-color: #093e5b;
+  color: #cfebfa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000386}}
+.paging_full_numbers a.paginate_active {
+  background-color: #f37021;
+  color: black; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000390}}
+.paging_full_numbers a.paginate_button:hover {
+  background-color: #0e5e89; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000394}}
+.quick-search-sidenav, .quick-search-sidenav legend, .breadcrumb,
+.footer, .admin-sidenav {
+  background-color: #093e5b;
+  color: #cfebfa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\0000398}}
+.accordion-toggle {
+  color: #000000; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003102}}
+.quick-search-sidenav .btn {
+  margin-bottom: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003105}}
+.rounded-border {
+  border: 1px solid #e1e1e8;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border-radius: 7px 7px 7px 7px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003109}}
+.navbar-inner {
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003112}}
+.breadcrumb {
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003116}}
+.breadcrumb > li, .breadcrumb > li a {
+  text-shadow: none;
+  color: #cfebfa; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003121}}
+.shaded {
+  background-color: #f7f7f9; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003125}}
+.weird-font {
+  font-family: 'Kite One', sans-serif;
+  font-size: 1.3em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003130}}
+.nav-tabs {
+  margin-bottom: 0px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003133}}
+.tab-content {
+  padding: 20px 20px 50px 20px;
+  border-top: transparent;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-radius: 0px 0px 7px 7px;
+  border-radius: 0px 0px 7px 7px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003138}}
+[class*="span"] {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */ }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003142}}
+.abnormal {
+  background-color: orange;
+  color: black; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003146}}
+.severe {
+  background-color: red;
+  color: white; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003150}}
+.normal {
+  background-color: green;
+  color: white; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003154}}
+.caution {
+  background-color: yellow;
+  color: black; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003159}}
+.padding-small {
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  padding: 2px 2px 2px 2px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003162}}
+.padding-medium {
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding: 6px 6px 6px 6px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003165}}
+.padding-large {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding: 10px 10px 10px 10px; }
+
+/*	DataTables */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003169}}
+.dataTables_wrapper {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding: 10px 10px 10px 10px; }
+
+/*	Badge in Bootstrap v2 */
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003174}}
+.badge {
+  margin-left: 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003179}}
+[class*=icon].pad-left {
+  padding-left: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003182}}
+[class*=icon].pad-right {
+  padding-right: 10px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/TFS_Local\/Tribo\/trunk\/Tribo2013\/Webtrieve9\/Demo\/Demo\/css\/Webtrieve\.scss}line{font-family:\00003187}}
+input {
+  font-size: 13px !important; }
+

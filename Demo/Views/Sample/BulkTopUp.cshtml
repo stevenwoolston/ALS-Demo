@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Bulk TopUp Values";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/js/bootstrap-wysihtml5.js"></script>
+    <link href="~/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/sample/bulktopuplist/">Bulk TopUp Search</a><span class="divider">/</span></li>
+    <li class="active">Bulk Top Up</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <form id="fullsubmission" method="get" action="/sample/bulktopuphistory/">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                    <thead>
+                        <tr>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Unit ID</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Compartment</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Date Topped Up&nbsp;<i title="Replicate this value to all subsequent items" class="icon-circle-arrow-down"></i></th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Shift&nbsp;<i title="Replicate this value to all subsequent items" class="icon-circle-arrow-down"></i></th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">New Meter Reading</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Quantity</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Previous Meter Reading</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Last Top Up</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Date Last Top Up</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Last Shift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var i = 0;
+                            while (i < 3)
+                            {
+                                i += 2;
+                            <tr>
+                                <td>Demo Coolant</td>
+                                <td>Coolant System</td>
+                                <td>
+                                    <div class="input-append">
+                                        <input type="text" class="datepicker textbox input-small" value="01/01/2013" />
+                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>04/04/2012</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Demo Coolant</td>
+                                <td></td>
+                                <td>
+                                    <div class="input-append">
+                                        <input type="text" class="datepicker textbox input-small" value="01/01/2013" />
+                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>
+                                    <input type="text" class="textbox input-small" />
+                                </td>
+                                <td>@(i*3)</td>
+                                <td>@(i*3/3)</td>
+                                <td>04/04/2012</td>
+                                <td>2</td>
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button class="btn btn-link">Clear</button>
+                        <button class="btn btn-primary"><i class="icon-save"></i>&nbsp;Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="editdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Expanded Comments</h3>
+    </div>
+    <div class="modal-body">
+        <form action="#" method="get">
+            <label for="commentbody">Submissions Comments</label>
+            <textarea class="span5 richtext" id="commentbody"></textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $(".compartmentdetails").popover({
+            html: true,
+            content: "Company Name: ALS Tribology Perth<br/>Fluid: Unidentified<br/>Fluid Manufacturer: Unidentified<br/>Grade: 25W50",
+            title: "Compartment Details",
+            trigger: "hover",
+            placement: "right"
+        });
+
+        $(".datepicker").datepicker();
+        $("[title]").tooltip();
+
+        $(".richtext").wysihtml5({
+            "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": false, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": false, //Button to insert a link. Default true
+            "color": false, //Button to change color of font
+            "image": false
+        });
+
+        $(".icon-search").click(function () {
+            $("#editdialog").modal("show");
+        });
+
+        $(".modal-footer .btn-primary").click(function () {
+            $(".modal").modal("hide");
+        });
+
+    });
+</script>
+

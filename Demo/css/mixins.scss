@@ -1,0 +1,24 @@
+﻿@mixin set-border-radius($topleft, $topright: $topleft, $bottomright: $topleft, $bottomleft: $topleft) {
+
+	-moz-border-radius-topleft:     $topleft;
+	-moz-border-radius-topright:    $topright;
+	-moz-border-radius-bottomright: $bottomright;
+	-moz-border-radius-bottomleft:  $bottomleft;
+	-webkit-border-radius:          $topleft $topright $bottomright $bottomleft;
+	border-radius:                  $topleft $topright $bottomright $bottomleft;
+
+}
+
+@mixin set-padding($top, $right: $top, $bottom: $top, $left: $top) {
+	padding-top:	$top;
+	padding-right:	$right;
+	padding-bottom:	$bottom;
+	padding-left:	$left;
+	padding:		$top $right $bottom $left;
+}
+
+@mixin border-box-fix{ 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}

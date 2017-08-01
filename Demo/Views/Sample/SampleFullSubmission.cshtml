@@ -1,0 +1,374 @@
+﻿@{
+    ViewBag.Title = "Sample Full Submission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/js/bootstrap-wysihtml5.js"></script>
+    <link href="~/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/search/SampleSubmissionSearch/">Sample Submission Search</a><span class="divider">/</span></li>
+    <li class="active">Sample Full Submission</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <form id="fullsubmission" method="get" action="/search/SampleSubmissionSearch">
+                <table cellpadding="0" cellspacing="0" border="0" class="table datatable table-striped table-bordered datatable">
+                    <thead>
+                        <tr>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Unit ID</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Unit Age</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Service Type&nbsp;<i title="Replicate this value to all subsequent items" class="icon-circle-arrow-down"></i></th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Compartment</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Date Sampled&nbsp;<i title="Replicate this value to all subsequent items" class="icon-circle-arrow-down"></i></th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Compartment Age</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Fluid Changed?</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Fluid Age</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Filter Changed?</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Oil Top Up</th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Work Order #&nbsp;<i title="Replicate this value to all subsequent items" class="icon-circle-arrow-down"></i></th>
+                            <th role="columnheader" class="pri-bg-colour pri-fg-colour">Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101583241009</td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td><a href="#" class="compartmentdetails">Left Hand Vibe</a></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="datepicker textbox input-small" value="01/01/2013" />
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" placeholder="Work Order #" /></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" placeholder="Comment" />
+                                    <span class="add-on"><i class="icon-search"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>101583241009</td>
+                            <td>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="This is a Unit specific value and only needs to be modified once (see above).">As Above</a>
+                            </td>
+                            <td>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="This is a Unit specific value and only needs to be modified once (see above).">As Above</a>
+                            </td>
+                            <td><a href="#" class="compartmentdetails">Right Hand Vibe</a></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" value="01/01/2013" />
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" placeholder="Work Order #" />
+                            </td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" placeholder="Comment" />
+                                    <span class="add-on"><i class="icon-search"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>104</td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td><a href="#" class="compartmentdetails">Left Hand Vibe</a></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" value="01/01/2013" />
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" placeholder="Work Order #" />
+                            </td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" placeholder="Comment" />
+                                    <span class="add-on"><i class="icon-search"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>116-ESG</td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td><a href="#" class="compartmentdetails">Left Hand Vibe</a></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" value="01/01/2013" />
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" placeholder="Work Order #" />
+                            </td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" placeholder="Comment" />
+                                    <span class="add-on"><i class="icon-search"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>116-ESG</td>
+                            <td>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="This is a Unit specific value and only needs to be modified once (see above).">As Above</a>
+                            </td>
+                            <td>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="This is a Unit specific value and only needs to be modified once (see above).">As Above</a>
+                            </td>
+                            <td><a href="#" class="compartmentdetails">Right Hand Vibe</a></td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" value="01/01/2013" />
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <select class="input-small">
+                                    <option selected></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" />
+                            </td>
+                            <td>
+                                <input type="text" class="textbox input-small" placeholder="Work Order #" />
+                            </td>
+                            <td>
+                                <div class="input-append">
+                                    <input type="text" class="textbox input-small" placeholder="Comment" />
+                                    <span class="add-on"><i class="icon-search"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button class="btn btn-link">Clear</button>
+                        <button class="btn btn-primary"><i class="icon-save"></i>&nbsp;Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="editdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Expanded Comments</h3>
+    </div>
+    <div class="modal-body">
+        <form action="#" method="get">
+            <label for="commentbody">Submissions Comments</label>
+            <textarea class="span5 richtext" id="commentbody"></textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var dataTable = $(".datatable").dataTable({
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "sDom": 'RC<"clear">lfrtip',
+            "aoColumnDefs": [
+                { "bVisible": false, "aTargets": [6, 7, 9, 10] },
+                { "bSortable": false, "aTargets": [0] }
+            ]
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $(".compartmentdetails").popover({
+            html: true,
+            content: "Company Name: ALS Tribology Perth<br/>Fluid: Unidentified<br/>Fluid Manufacturer: Unidentified<br/>Grade: 25W50",
+            title: "Compartment Details",
+            trigger: "hover",
+            placement: "right"
+        });
+
+        $(".datepicker").datepicker();
+        $("[title]").tooltip();
+
+        $(".richtext").wysihtml5({
+            "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": false, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": false, //Button to insert a link. Default true
+            "color": false, //Button to change color of font
+            "image": false
+        });
+
+        $(".icon-search").click(function () {
+            $("#editdialog").modal("show");
+        });
+
+        $(".modal-footer .btn-primary").click(function () {
+            $(".modal").modal("hide");
+        });
+
+    });
+</script>
+

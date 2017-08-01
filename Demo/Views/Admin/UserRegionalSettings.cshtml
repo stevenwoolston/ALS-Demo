@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Change Your Regional Settings";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form id="changeautoclear" name="changeautoclear" action="/admin/UserRegionalSettings/" method="post" class="shaded rounded-border padding-large">
+    <h4>Date and Time Format</h4>
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="1" value="1" checked>
+        US Format (mm/dd/yyyy 12h)
+    </label>
+
+    <label class="radio">
+        <input type="radio" checked name="optionsRadios" id="2" value="2">
+        Australian/UK format (dd/mm/yyyy 12h)
+    </label>
+
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="3" value="3">
+        European format (dd.mm.yyyy 24h)
+    </label>
+
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="4" value="4">
+        ISO 8601 Format (yyyy-mm-dd 24h)
+    </label>
+
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(function () {
+        $("#changeautoclear").on("submit", function (e) {
+            e.preventDefault();
+            toastr.success("Your Regional Settings changes were successfully updated.", "Webtrieve9 Says")
+        });
+    });
+</script>

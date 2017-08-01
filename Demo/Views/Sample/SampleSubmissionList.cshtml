@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Sample Submission List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/search/SampleSubmissionSearch/">Sample Submission Search</a><span class="divider">/</span></li>
+    <li class="active">Sample Submission List</li>
+</ul>
+
+<div class="container-fluid">
+    <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="/sample/SampleSubmissionList/" method="post" name="searchform">
+        <fieldset>
+            <legend>Search for Submissions</legend>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Tracking Number Range</label>
+                    <div class="controls">
+                        <input type="text" class="input-small" placeholder="From" />
+                        <input type="text" class="input-small" placeholder="To" />
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Type of Submissions</label>
+                    <div class="controls">
+                        <select>
+                            <option selected>Unprinted Submissions</option>
+                            <option>Deleted Submissions</option>
+                            <option>Oustanding Submissions - Not Received</option>
+                            <option>Oustanding Submissions - Received By Lab</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Date Logged</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="From Date" />
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                        </div>&nbsp;
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="To Date" />
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="pull-right">
+                    <button class="btn btn-link">Clear</button>
+                    <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;Search</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <td class="pri-bg-colour pri-fg-colour">
+                            <input type="checkbox" /></td>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Logged</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Sampled</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Tracking Number</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit ID</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Compartment</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">UIN</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Printed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        var trackingnumber = 10001;
+                        while (i < 65)
+                        {
+                            trackingnumber += i;
+                            i += 1;
+                        <tr>
+                            <td>
+                                <input type="checkbox" /></td>
+                            <td>10/01/2013</td>
+                            <td>10/01/2013</td>
+                            <td><a href="#" class="trackingnumber">@trackingnumber</a></td>
+                            <td>1ACM-630</td>
+                            <td>Front Differential</td>
+                            <td>031C707</td>
+                            <td>01/01/2013</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <div class="btn-group">
+                                <button class="btn btn-primary"><i class="icon-print"></i>&nbsp;Brother 62x100 ANR</button>
+                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-print"></i>&nbsp;Avery21 - L7160</a></li>
+                                    <li><a href="#"><i class="icon-print"></i>&nbsp;Avery21 - Roll</a></li>
+                                    <li><a href="#"><i class="icon-print"></i>&nbsp;Zebra LP2844</a></li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-info"><i class="icon-edit"></i>&nbsp;Edit Selection</button>
+                            <button class="btn btn-info"><i class="icon-remove"></i>&nbsp;Delete Selection</button>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-cloud-download"></i>&nbsp;Export Results As XML</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export Results As CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("#fullsubmission").click(function () {
+            location.href = "/sample/SampleFullSubmission/";
+        });
+
+        $(".trackingnumber").popover({
+            html: true,
+            content: "<b><u>Test Group Status</u></b><br/>FTIR: Complete<br/>ICP: Complete<br/>Other: Complete",
+            title: "Sample Status <b>(Received)</b><br/>Received: 01/01/2013",
+            trigger: "hover",
+            placement: "right"
+        });
+    });
+</script>

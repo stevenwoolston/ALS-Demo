@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/bundles/css/themes/base/css")
+    @Styles.Render("~/bundles/css/bootstrap")
+    @Styles.Render("~/bundles/css/site")
+
+    @Scripts.Render("~/bundles/js/jquery")
+    @Scripts.Render("~/bundles/js/modernizr")
+    @Scripts.Render("~/bundles/js/bootstrap")
+    @Scripts.Render("~/bundles/js/controls")
+
+
+    @RenderSection("Javascript", required: false)
+</head>
+<body>
+    <header>
+        @Html.Partial("_TopNav")
+    </header>
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+    @Html.Partial("_Footer")
+
+</body>
+</html>
+
+@RenderSection("scripts", required: false)

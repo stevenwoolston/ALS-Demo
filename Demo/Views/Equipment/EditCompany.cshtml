@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "View a Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/equipment/company/">Company Search</a> <span class="divider">/</span></li>
+    <li class="active">View Company</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+            @Html.Partial("_ManageCompany")
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <a href="/equipment/editunit/" class="btn btn-primary"><i class="icon-plus-sign"></i>&nbsp;New Unit</a>
+                            <a href="/equipment/unit/" class="btn btn-info"><i class="icon-search"></i>&nbsp;View Units</a>
+                            <a href="#" class="btn btn-info viewcontacts"><i class="icon-male"></i>&nbsp;View Contacts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="contactdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Company Contacts<h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_Contacts")
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-send-group-email" aria-hidden="true">Send Group Email</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        $("[title]").tooltip();
+
+        $(".viewcontacts").click(function () {
+            $("#contactdialog")
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+        });
+
+        $(".btn-send-group-email").click(function () {
+            toastr.success("A new email will be opened in your email client addressed to all the people you selected.", "Webtrieve9 Says")
+        });
+
+    });
+</script>

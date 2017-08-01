@@ -1,0 +1,234 @@
+﻿html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Candara', 'Arial Narrow', 'Nimbus Sans L', sans-serif;
+    font-size: 14px;
+}
+
+/*  Nav Custom Styles */
+div.dropdown-menu {
+    padding: 10px;
+}
+
+/*  Data Tables */
+table, button {
+    font-family: 'Candara', 'Nimbus Sans L', sans-serif;
+}
+
+button {
+    font-size: 0.9em;
+}
+.dataTables_filter {
+    float: right;
+    text-align: right;
+}
+
+.dataTables_length {
+    float: left;
+}
+
+.dataTables_info {
+    clear: both;
+    float: left;
+}
+
+.dataTables_paginate {
+    float: right;
+    text-align: right;
+}
+
+.paginate_enabled_previous {
+    background: url('../img/datatables/back_enabled.png') no-repeat top left;
+}
+
+.paginate_enabled_next {
+    background: url('../img/datatables/forward_enabled.png') no-repeat top right;
+}
+
+.paginate_disabled_previous {
+    background: url('../img/datatables/back_disabled.png') no-repeat top left;
+}
+
+.paginate_disabled_next {
+    background: url('../img/datatables/forward_disabled.png') no-repeat top right;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous {
+    padding-left: 23px;
+}
+
+.paginate_disabled_next, .paginate_enabled_next {
+    padding-right: 23px;
+    margin-left: 10px;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+    height: 19px;
+    float: left;
+    cursor: pointer;
+    color: #111 !important;
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+table.table thead .sorting {
+    background: url('../img/datatables/sort_both.png') no-repeat center right;
+}
+
+table.table thead .sorting_asc {
+    background: url('../img/datatables/sort_asc.png') no-repeat center right;
+}
+
+table.table thead .sorting_desc {
+    background: url('../img/datatables/sort_desc.png') no-repeat center right;
+}
+
+table.table thead .sorting_asc_disabled {
+    background: url('../img/datatables/sort_asc_disabled.png') no-repeat center right;
+}
+
+table.table thead .sorting_desc_disabled {
+    background: url('../img/datatables/sort_desc_disabled.png') no-repeat center right;
+}
+
+div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+
+.paging_full_numbers a {
+    padding: 5px 10px;
+    border: 1px solid #dcdcdc;
+}
+
+.paging_full_numbers a.paginate_active {
+    padding: 5px 10px;
+    background-color: #dcdcdc;
+    border: 1px solid #36ba48;
+}
+
+.paging_full_numbers a:hover {
+    background-color: #dcdcdc;
+}
+
+.dataTables_processing {
+    display: none;
+}
+
+.dataTables_length select {
+    width: 100px;
+}
+
+.dataTables_filter input[type=text] {
+    width: 150px;
+}
+/*  end Data Tables */
+
+footer, .footer {
+    margin-top: 20px;
+}
+
+/* logon */
+
+/* Home / News */
+.news-container {
+    height: 600px;
+    overflow-y: scroll;
+}
+/* Forms */
+.form-actions {
+    padding: 10px 20px 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+fieldset {
+    padding: 0px 10px;
+}
+
+label[generated=true] {
+    color: red;
+    display: inline;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 4px solid #dcdcdc;
+}
+
+.form-horizontal .control-label {
+    width: auto;
+    padding-right: 20px;
+    text-align: left;
+}
+
+#logoncredentials .control-label {
+    /*width: 80px;*/
+}
+
+#logoncredentials .controls {
+    /*margin-left: 80px;*/
+}
+
+/*  fonts */
+[class^="icon-"], [class*=" icon-"] {
+    padding: 0px 3px 0px 0px;
+}
+
+/*  Search */
+.search-criteria-wrap .tab-content {
+    overflow: visible;
+}
+
+#searchform .form-actions {
+    padding-left: 0px;
+}
+/*  Responsive amendments */
+@media (max-width: 767px) {
+    body {
+        padding: 0px;
+    }
+}
+
+.btn-group + .btn-group {
+    margin-left: 0px;
+}
+
+.centred {
+    float: none;
+    margin: 0px auto;
+}
+
+.foothead {
+    background-color: #dcdcdc;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+.pull-down {
+    vertical-align: baseline;
+}
+
+.pull-up {
+    vertical-align: top;
+}
+img[align=right] {
+    padding-left: 30px;
+}
+img[align=left] {
+    padding-right: 30px;
+}
+
+#notifications .badge {
+    position: absolute;
+    top: 2px;
+    margin-left: -15px;
+}

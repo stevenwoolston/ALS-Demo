@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Sample Submission Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li>Sample Submission Search</li>
+</ul>
+
+<div class="container-fluid">
+    <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="/search/SampleSubmissionSearch/" method="post" name="searchform">
+        <fieldset>
+            <legend>Search for Equipment</legend>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Companies</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Unit ID</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="No selections" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Compartment Description</label>
+                    <div class="controls">
+                        <input type="text" class="textbox" placeholder="Description" />
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Compartment Serial No</label>
+                    <div class="controls">
+                        <input type="text" class="textbox" placeholder="Serial Number" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Compartment Selection</label>
+                    <div class="controls">
+                        <div class="btn-group" data-toggle="buttons-radio">
+                            <button type="button" class="btn btn-info active">All Compartments</button>
+                            <button type="button" class="btn btn-info">New Compartments Only</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="pull-right">
+                    <button class="btn btn-link">Clear</button>
+                    <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;Search</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+            @Html.Partial("_CompartmentResults");
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <button id="fullsubmission" class="btn btn-primary"><i class="icon-cloud-upload"></i>&nbsp;Submit Samples</button>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Export As XML</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Export As CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="lookupdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Lookup Data</h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_Lookup");
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("#fullsubmission").click(function () {
+            location.href = "/sample/SampleFullSubmission/";
+        });
+
+        $("#basicsubmission").click(function () {
+            location.href = "/sample/SampleSubmissionList/";
+        });
+
+        $(".btn-lookup").click(function () {
+
+            $("#lookupdialog .datatable").css({ "width": "100%" });
+
+            $("#lookupdialog")
+                .draggable()
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+
+            $("#lookupdialog .modal-body").css({ "min-height": "590px" });
+
+        });
+
+    });
+</script>

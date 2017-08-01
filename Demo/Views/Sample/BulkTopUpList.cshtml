@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Bulk Top Up Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li class="active">Bulk Top Up Search</li>
+</ul>
+
+<div class="container-fluid">
+    <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="/sample/BulkTopUpList/" method="post" name="searchform">
+        <fieldset>
+            <legend>Search for Units</legend>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Companies</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Unit ID</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="No selections" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <div class="pull-right">
+                    <button class="btn btn-link">Clear</button>
+                    <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;Search</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <td class="pri-bg-colour pri-fg-colour">
+                            <input type="checkbox" /></td>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit ID</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Serial Number</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Site</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Make</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        int totalcmpt;
+                        while (i < 65)
+                        {
+                            i += 1;
+                            totalcmpt = i*3;
+                        <tr>
+                            <td>
+                                <input type="checkbox" /></td>
+                            <td>ALS Cleveland Technical Center</td>
+                            <td><a title="Click to view Unit" href="#">Demo Coolant</a></td>
+                            <td>18558</td>
+                            <td>Noumea</td>
+                            <td>Volvo</td>
+                            <td>Model</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <a href="/sample/bulktopup/" class="btn btn-primary"><i class="icon-edit"></i>&nbsp;Set TopUp Values</a>
+                            <a href="/sample/bulktopuphistory/" class="btn btn-info"><i class="icon-search"></i>&nbsp;View TopUp History</a>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-cloud-download"></i>Export As XML</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-cloud-download"></i>Export As CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("[title]").tooltip();
+
+    });
+</script>

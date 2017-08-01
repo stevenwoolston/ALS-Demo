@@ -1,0 +1,48 @@
+﻿            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <td class="pri-bg-colour pri-fg-colour">
+                            <input type="checkbox" /></td>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit ID</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Serial Number</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Site</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Make</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Model</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Year of Manufacture</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Operation</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit Measure</th>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour" style="width:150px;">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        int totalcmpt;
+                        while (i < 65)
+                        {
+                            i += 1;
+                            totalcmpt = i*3;
+                        <tr>
+                            <td>
+                                <input type="checkbox" /></td>
+                            <td><a title="Click to view company Details" href="/equipment/editcompany/">ALS Tribology - NSW</a></td>
+                            <td>Socam</td>
+                            <td>18558</td>
+                            <td>Noumea</td>
+                            <td>Volvo</td>
+                            <td>Model</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="/equipment/EditUnit/" class="btn"><i class="icon-edit"></i>Edit</a>
+                                <a href="/equipment/editunit/" class="btn"><i class="icon-copy"></i>Clone</a>
+                                <a class="edititem btn"><i class="icon-remove"></i>Delete</a>
+                                <a href="/equipment/compartment/" class="btn">Cmpts<span class="badge">@totalcmpt</span></a>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>

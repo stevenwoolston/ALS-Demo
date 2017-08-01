@@ -1,0 +1,92 @@
+﻿<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+    <thead>
+        <tr>
+            <td class="pri-bg-colour pri-fg-colour">
+                <input type="checkbox" /></td>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Compartment</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Sample Key</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Posted</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Posted By</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Feedback Detail</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Meter Reading</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date of Reading</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Fluid Changed?</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Filter Changed?</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Severity</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Visibility</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Status</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Read?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 0;
+            while (i < 30)
+            {
+                i += 2;
+            <tr>
+                <td>
+                    <input type="checkbox" /></td>
+                <td><a href="/equipment/company/1" title="Click here to view Company">Socam</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="/equipment/editunit/1" title="Click here to view Unit">LD33</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="/equipment/editcompartment/1" title="Click here to view Compartment">Tecbat</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="/sample/details/1" title="Click here to view the Sample">9814843</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td>01/01/2013</td>
+                <td>Michael Mouse</td>
+                <td><a href="#" title="Click here to view the Feedback Details">Pellentesque habitant morbi tristique senectus et netus.</a></td>
+                <td>@(i * 345)</td>
+                <td>@(DateTime.Today.ToShortDateString())</td>
+                <td><i class="icon-check"></i></td>
+                <td><i class="icon-check-empty"></i></td>
+                <td>Normal</td>
+                <td>Internal</td>
+                <td>Processed</td>
+                <td><i class="icon-check"></i></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" /></td>
+                <td><a href="#" title="Click here to view Company">Socam</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="#" title="Click here to view Unit">LD33</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="#" title="Click here to view Compartment">Tecbat</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td><a href="/sample/details/" title="Click here to view the Sample">9814843</a>&nbsp;<a href="#" title="Click here for a quick view" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                <td>01/01/2013</td>
+                <td>Michael Mouse</td>
+                <td><a href="#" title="Click here to view the Feedback Details">Pellentesque habitant morbi tristique senectus et.</a><br />
+                    <a href="#" title="Click here to view the attachment"><i class="icon-paper-clip"></i>&nbsp;Feedback Attachment Title</a>
+                </td>
+                <td>@(i * 8345)</td>
+                <td>@(DateTime.Today.ToShortDateString())</td>
+                <td><i class="icon-check-empty"></i></td>
+                <td><i class="icon-check"></i></td>
+                <td>Moderate</td>
+                <td>Sent To Lab</td>
+                <td>Processed</td>
+                <td><i class="icon-check-empty"></i></td>
+            </tr>                        
+            }
+        }
+    </tbody>
+</table>
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip',
+            "aoColumnDefs": [
+                { "bVisible": false, "aTargets": [8, 9, 10, 11] },
+                { "bSortable": false, "aTargets": [0] }
+            ],
+            "oColVis": {
+                "aiExclude": [0]
+            }
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+    });
+</script>

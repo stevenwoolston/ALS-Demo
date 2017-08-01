@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Update Your Profile Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form class="shaded rounded-border form-horizontal padding-large" id="updateprofile" name="updateprofile" method="post" action="/Admin/UpdateUserProfile/">
+    <div class="control-group">
+        <label class="control-label" for="inputCompany">Company</label>
+        <div class="controls">
+            ACME Pty Ltd
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="FirstName">First Name</label>
+        <div class="controls">
+            <input type="text" id="FirstName" name="FirstName" placeholder="First Name" />
+        </div>
+    </div>
+
+
+    <div class="control-group">
+        <label class="control-label" for="LastName">Last Name</label>
+        <div class="controls">
+            <input type="text" id="LastName" name="LastName" placeholder="Last Name" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="JobTitle">Job Title</label>
+        <div class="controls">
+            <input type="text" id="JobTitle" name="JobTitle" placeholder="Job Title" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="EmailAddress">Email</label>
+        <div class="controls">
+            <input type="text" id="EmailAddress" name="EmailAddress" placeholder="Email" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="Phone">Phone</label>
+        <div class="controls">
+            <input type="text" id="Phone" name="Phone" placeholder="Phone" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="Address">Street Address</label>
+        <div class="controls">
+            <input type="text" id="Address" name="Address" placeholder="Street Address" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="City">City</label>
+        <div class="controls">
+            <input type="text" id="City" name="City" placeholder="City" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="postcode">Postal Code</label>
+        <div class="controls">
+            <input type="text" id="postcode" name="postcode" placeholder="Postal Code" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+            <input type="submit" class="btn btn-primary" value="Save Details" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        $("#updateprofile").validate({
+            rules: {
+                // simple rule, converted to {required:true}
+                inputCompany: {
+                    required: true,
+                    minlength: 3
+                },
+                EmailAddress: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                inputCompany: {
+                    required: "You must enter a Company Name",
+                    minlength: jQuery.format("Must be > than {0} characters")
+                },
+                EmailAddress: {
+                    required: "You must enter an email address",
+                    email: "This is not a valid email address"
+                }
+            }
+        });
+    });
+</script>

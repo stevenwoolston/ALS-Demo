@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Sample Configuration";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form id="sampleconfig" name="sampleconfig" action="/admin/SampleConfig/" method="post" class="shaded rounded-border padding-large form-horizontal">
+
+    <h4>Configure When Samples Appear In The New Samples List</h4>
+    <ul>
+        <li>Select Yes to specify the number of days the system will wait before removing from the New Samples list.
+            <ul>
+                <li>A zero value will specify that samples of this type are never included in the New Samples list.</li>
+            </ul>
+        </li>
+        <li>Select No and the sample will only be removed when you view it.</li>
+    </ul>
+    <hr />
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Normal Samples</label>
+        <div class="controls">
+            <div class="span4 btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn btn-success active">Yes</button>
+                <button type="button" class="btn">No</button>
+            </div>
+            <div class="span4">
+                <input type="text" class="input-mini" value="7" placeholder="0" />&nbsp; days
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Caution Samples</label>
+        <div class="controls">
+            <div class="span4 btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn btn-success active">Yes</button>
+                <button type="button" class="btn">No</button>
+            </div>
+            <div class="span4">
+                <input type="text" class="input-mini" value="7" placeholder="0" />&nbsp; days
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group warning">
+        <label class="control-label fields" for="unitid">Abnormal Samples</label>
+        <div class="controls">
+            <div class="span4 btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn btn-success active">Yes</button>
+                <button type="button" class="btn">No</button>
+            </div>
+            <div class="span4">
+                <input type="text" title="Entering a zero value will clear these samples immediately." 
+                    class="input-mini" value="0" placeholder="0" />&nbsp; days
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label fields" for="unitid">Severe Samples</label>
+        <div class="controls">
+            <div class="span4 btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn">Yes</button>
+                <button type="button" class="btn btn-success active">No</button>
+            </div>
+            <div class="span4">
+                
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(function () {
+
+        $("#sampleconfig").on("submit", function (e) {
+            var isvalidate = $("#sampleconfig").valid();
+            if (isvalidate) {
+                e.preventDefault();
+                toastr.success("Your sample configuration settings were successfully updated.", "Webtrieve9 Says")
+            }
+        });
+
+        $(".btn-toggle-radio button").click(function () {
+            $(this).siblings().removeClass("active btn-success");
+            $(this).addClass("active btn-success");
+        });
+
+        $("[title]").tooltip();
+    });
+</script>

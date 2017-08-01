@@ -1,0 +1,189 @@
+﻿@import "mixins";
+@import url(http://fonts.googleapis.com/css?family=Kite+One);
+
+/*	Variables */
+/*	backgrounds */
+$pri-bg: #093E5B;
+$sec-bg: #161E86;
+$third-bg: #F37021;
+$fourth-bg: complement($sec-bg);
+
+/*	font colours */
+$pri-fg: lighten($pri-bg, 70%);
+$sec-fg: invert($sec-bg);
+$third-fg: #000000;
+
+
+
+.pri-bg-colour {
+    background-color: $pri-bg !important;
+}
+.sec-bg-colour {
+    background-color: $sec-bg;
+}
+.third-bg-colour {
+    background-color: $third-bg;
+}
+.fourth-bg-colour {
+    background-color: $fourth-bg;
+}
+
+.pri-fg-colour {
+	color: $pri-fg !important;
+}
+.sec-fg-colour {
+	color: $sec-fg;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+a {
+	color: $pri-bg;
+	text-decoration: none;
+}
+.footer a {
+	color: $pri-fg;
+	text-decoration: none;
+}
+a.underline {
+	text-decoration: underline;
+}
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+	color: #ffffff !important;
+	background-color: #006dcc !important;
+}
+.nav-pills > li > a:hover, .nav-pills > li > a:focus {
+	color: #ffffff !important;
+	background-color: $pri-bg !important;
+}
+.topnavbar {
+	background-color: $pri-bg;
+	background-image: url('/img/header-bg.png');
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-top: 30px;
+	height: 100px;
+}
+.topnavbar .brand-container, .system-nav {
+	margin-top: -20px;
+}
+.menu-bar {
+	padding-top: 20px;
+}
+.nav-container {
+	padding-top: 10px;
+}
+.system-nav a {
+	color: $pri-fg;
+}
+
+.paging_full_numbers a {
+	background-color: $pri-bg;
+	color: $pri-fg;
+}
+.paging_full_numbers a.paginate_active {
+	background-color: $third-bg;
+	color: $third-fg;
+}
+.paging_full_numbers a.paginate_button:hover {
+	background-color: lighten($pri-bg, 10%);
+}
+.quick-search-sidenav, .quick-search-sidenav legend, .breadcrumb, 
+	.footer, .admin-sidenav {
+	background-color: $pri-bg;
+	color: $pri-fg;
+}
+.accordion-toggle {
+	color: #000000;
+}
+
+.quick-search-sidenav .btn {
+	margin-bottom: 10px;
+}
+.rounded-border {
+	border: 1px solid #e1e1e8;
+    @include set-border-radius(7px);
+}
+.navbar-inner {
+	@include set-border-radius(0px);
+}
+.breadcrumb {
+	@include set-border-radius(0px);
+}
+
+.breadcrumb > li, .breadcrumb > li a {
+	text-shadow: none;
+	color: $pri-fg;
+}
+
+.shaded {
+	background-color: #f7f7f9;
+}
+
+.weird-font {
+	font-family: 'Kite One', sans-serif;
+	font-size: 1.3em;
+}
+
+.nav-tabs {
+	margin-bottom: 0px;
+}
+.tab-content {
+	padding: 20px 20px 50px 20px;
+	border-top: transparent;
+	@include set-border-radius(0px, 0px, 7px, 7px);
+}
+[class*="span"] {
+	@include border-box-fix;
+}
+
+.abnormal {
+	background-color: orange;
+	color: black;
+}
+.severe {
+	background-color: red;
+	color: white;
+}
+.normal {
+	background-color: green;
+	color: white;
+}
+.caution {
+	background-color: yellow;
+	color: black;
+}
+
+.padding-small {
+    @include set-padding(2px);
+}
+.padding-medium {
+    @include set-padding(6px);
+}
+.padding-large {
+    @include set-padding(10px);
+}
+/*	DataTables */
+.dataTables_wrapper {
+    @include set-padding(10px)
+}
+
+/*	Badge in Bootstrap v2 */
+.badge {
+	//background-color: #0A517B;
+	margin-left: 5px;
+}
+
+[class*=icon].pad-left {
+	padding-left: 10px;
+}
+[class*=icon].pad-right {
+	padding-right: 10px;
+}
+
+
+input {
+    font-size: 13px !important;
+}

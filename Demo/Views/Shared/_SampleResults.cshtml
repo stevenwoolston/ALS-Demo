@@ -1,0 +1,52 @@
+﻿            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <td class="pri-bg-colour pri-fg-colour">
+                            <input type="checkbox" /></td>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Sampled</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">SIF No</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Compartment</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Cmpt Type</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Fluid</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Location</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Severity</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Problem Code</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Diagnosed</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Received</th>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        while (i < 65)
+                        {
+                            i += 1;
+                        <tr>
+                            <td>
+                                <input type="checkbox" /></td>
+                            <td>10/01/2013</td>
+                            <td>7688198</td>
+                            <td><a href="/equipment/company/" title="Click here to view the Company">Cipac Services</a>&nbsp;<i class="icon-question-sign"></i></td>
+                            <td><a href="/equipment/unit/" title="Click here to view the Unit">Noute</a>&nbsp;<i class="icon-question-sign"></i></td>
+                            <td><a href="/equipment/compartment/" title="Click here to view the Compartment">Hydraulique</a>&nbsp;<i class="icon-question-sign" title="Quick View"></i></td>
+                            <td>Differential</td>
+                            <td>Van C6 Global</td>
+                            <td>Right Rear</td>
+                            <td>Normal</td>
+                            <td>Water</td>
+                            <td>24/01/2012</td>
+                            <td>23/01/2012</td>
+                            <td>
+                                <div class="pull-right">
+                                <a class="btn btn-primary" href="/sample/details">View Sample</a>
+                                <a class="btn" href="/feedback/search/">View Feedback<span class="badge">2</span></a>
+                                    </div>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>

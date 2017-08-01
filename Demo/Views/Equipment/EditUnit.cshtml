@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Edit Unit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/js/bootstrap-wysihtml5.js"></script>
+    <link href="~/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/equipment/unit/">Unit Search</a> <span class="divider">/</span></li>
+    <li class="active">Edit Unit</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+            @Html.Partial("_ManageUnit")
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <a href="/equipment/editcompartment/" class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;New Compartment</a>
+                            <a href="/equipment/compartment/" class="btn btn-info"><i class="icon-search"></i>&nbsp;View Compartments</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+
+        $(".datepicker").datepicker();
+        $("[title]").tooltip();
+
+        $("#save").click(function () {
+            event.preventDefault();
+            toastr.success("Those changes were successfully updated.", "Webtrieve9 Says");
+            $(".modal").modal("hide");
+        });
+
+        $("#update #name").val("Demo Coolant");
+        $("#update #make").val("Kenworth");
+        $("#update #model").val("T800");
+        $("#update #sector").val("");
+        $("#update #operation").val("");
+        $("#update #serialnumber").val("124528");
+        $("#update #site").val("");
+
+        $(".richtext").wysihtml5({
+            "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": true, //Button to insert a link. Default true
+            "color": false //Button to change color of font
+        }).css({"height": "100px"});
+
+    });
+</script>

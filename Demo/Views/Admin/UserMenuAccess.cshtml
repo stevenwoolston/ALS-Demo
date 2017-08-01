@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Show or Hide Menus";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form id="changestartpage" name="changestartpage" action="/admin/UserChangeStartPage/" method="post" class="shaded rounded-border padding-large">
+    <label class="checkbox">
+        <input type="checkbox" value="">
+        Search
+    </label>
+    <label class="checkbox">
+        <input type="checkbox" value="">
+        Samples
+    </label>
+    <label class="checkbox">
+        <input type="checkbox" value="">
+        Equipment
+    </label>
+    <label class="checkbox">
+        <input type="checkbox" disabled checked value="">
+        Quick Search
+    </label>
+
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(function () {
+        $("#changestartpage").on("submit", function (e) {
+            e.preventDefault();
+            toastr.success("Your menus were successfully updated.", "Webtrieve9 Says")
+        });
+    });
+</script>

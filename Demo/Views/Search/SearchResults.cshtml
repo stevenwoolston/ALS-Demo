@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "Search Results";
+    string ResultsMode = ViewBag.Message;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/search/">Search</a> <span class="divider">/</span></li>
+    <li class="active">Search Results</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+@{  
+    switch (ResultsMode)
+     {
+         case "coy":
+            @Html.Partial("_CompanyResults")
+            break;
+         case "unit":
+            @Html.Partial("_UnitResults")
+            break;
+         case "cmpt":
+            @Html.Partial("_CompartmentResults")
+            break;
+        default:
+            @Html.Partial("_SampleResults")
+            break;
+     }
+}
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <div class="btn-group">
+                                <a href="/search/searchresults/smpl" class="btn btn-primary"><i class="icon-search"></i>&nbsp;Sample List</a>
+                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/search/searchresults/cmpt"><i class="icon-search"></i>&nbsp;Compartment List</a></li>
+                                    <li><a href="/search/searchresults/unit"><i class="icon-search"></i>&nbsp;Unit List</a></li>
+                                    <li><a href="/search/searchresults/coy"><i class="icon-search"></i>&nbsp;Company List</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Save to a New Tag</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Save to XYZ tag</a></li>
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Save to 123 tag</a></li>
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Save to ZXC tag</a></li>
+                                </ul>
+                            </div>
+                            <a href="/sample/samplesummaryreport/" class="btn btn-info"><i class="icon-bookmark"></i>&nbsp;Sample Summary Report</a>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-plus-sign"></i>&nbsp;Export Results As XML</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Export Results As CSV</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Export Selection As XML</a></li>
+                                    <li><a href="#"><i class="icon-edit"></i>&nbsp;Export Selection As CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal hide fade" id="CmptDialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modify this Item</h3>
+    </div>
+    <div class="modal-body">
+        <form action="CRUD.htm" method="get">
+            <label for="companyname">Company Name:</label>
+            <input type="text" class="input-xlarge" id="companyname" name="companyname" />
+
+            <label for="unitid">Unit ID:</label>
+            <input type="text" id="unitid" name="unitid" />
+
+            <label for="unitage">Unit Age:</label>
+            <input type="text" id="unitage" name="unitage" />
+
+            <label for="cmptname">Compartment NAme:</label>
+            <input type="text" id="cmptname" name="cmptname" />
+
+            <label for="cmpttype">Compartment Type:</label>
+            <input type="text" id="cmpttype" name="cmpttype" />
+
+            <label for="cmptage">Compartment Age:</label>
+            <input type="text" id="cmptage" name="cmptage" />
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" />
+
+            <label for="uin">UIN:</label>
+            <input type="text" id="uin" name="uin" />
+
+            <label for="fluidage">Fluid Age:</label>
+            <input type="text" id="fluidage" name="fluidage" />
+
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" name="brand" />
+
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" />
+
+            <label for="fluidname">Fluid Name:</label>
+            <input type="text" id="fluidname" name="fluidname" />
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("[title]").tooltip();
+
+        function ShowCmptCRUD(SmplKey) {
+            $.getJSON("/Handlers/Webtrieve8.ashx?smplkey=" + SmplKey)
+                .done(function (json) {
+                    $("#CmptDialog #companyname").val(json.aaData[0].CoyName);
+                    $("#CmptDialog #unitid").val(json.aaData[0].CoyUnitId);
+                    $("#CmptDialog #unitage").val(json.aaData[0].UnitAge);
+                    $("#CmptDialog #cmptname").val(json.aaData[0].CmptName);
+                    $("#CmptDialog #cmpttype").val(json.aaData[0].CmptTypeName);
+                    $("#CmptDialog #cmptage").val(json.aaData[0].CmptAge);
+                    $("#CmptDialog #location").val(json.aaData[0].LocnName);
+                    $("#CmptDialog #uin").val(json.aaData[0].UINNo);
+                    $("#CmptDialog #fluidage").val(json.aaData[0].FludAge);
+                    $("#CmptDialog #brand").val(json.aaData[0].BrndName);
+                    $("#CmptDialog #grade").val(json.aaData[0].GrdeName);
+                    $("#CmptDialog #fluidname").val(json.aaData[0].FludName);
+                    $("#CmptDialog").modal("show");
+                });
+        }
+    });
+</script>

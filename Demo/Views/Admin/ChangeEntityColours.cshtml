@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Change Colour Settings";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span8">
+
+            <div class="accordion">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle shaded" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Data Types
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                            <form action="#" method="get">
+                                <label for="company">Company</label>
+                                <input type="text" class="input-small colorpicker" id="company" name="company" />
+
+                                <label for="unit">Unit</label>
+                                <input type="text" class="input-small colorpicker" id="unit" name="unit" />
+
+                                <label for="compartment">Compartment</label>
+                                <input type="text" class="input-small colorpicker" id="compartment" name="compartment" />
+
+                                <label for="sample">Sample</label>
+                                <input type="text" class="input-small colorpicker" id="sample" name="sample" />
+
+                                <label for="submission">Sample Submission</label>
+                                <input type="text" class="input-small colorpicker" id="submission" name="submission" />
+
+                                <div class="form-actions">
+                                    <div class="pull-right">
+                                        <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+                                        <input type="submit" class="btn btn-primary" value="Save Changes" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle shaded" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Severity Ratings
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <form action="#" method="get">
+                                <label for="company">Company</label>
+                                <input type="text" class="input-small colorpicker" id="company" name="company" />
+
+                                <label for="unit">Unit</label>
+                                <input type="text" class="input-small colorpicker" id="unit" name="unit" />
+
+                                <label for="compartment">Compartment</label>
+                                <input type="text" class="input-small colorpicker" id="compartment" name="compartment" />
+
+                                <label for="sample">Sample</label>
+                                <input type="text" class="input-small colorpicker" id="sample" name="sample" />
+
+                                <label for="submission">Sample Submission</label>
+                                <input type="text" class="input-small colorpicker" id="submission" name="submission" />
+
+                                <div class="form-actions">
+                                    <div class="pull-right">
+                                        <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+                                        <input type="submit" class="btn btn-primary" value="Save Changes" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".colorpicker")
+            .attr("placeholder", "#Hex Value")
+            .colorpicker().on("changeColor", function (e) {
+                $(this).css({ "background-color": e.color.toHex(), "color": "#ffffff" });
+            });
+
+        $("form").on("submit", function (e) {
+            e.preventDefault();
+            toastr.success("Your color changes were successfully updated.", "Webtrieve9 Says")
+        });
+    });
+</script>

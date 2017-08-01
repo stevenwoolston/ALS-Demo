@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Manage News Article Types";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <button id="newitem" class="btn btn-primary">New Knowledgebase Category</button>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour">Category Name</th>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour">Total Articles</th>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour">Active?</th>
+                        <th role="columnheader" class="pri-bg-colour pri-fg-colour">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Global Deals</td>
+                        <td>0</td>
+                        <td><i class="icon-check icon-2"></i></td>
+                        <td>
+                            <button class="btn edititem"><span class="icon-pencil icon-1x"></span>Edit</button>
+                            <button class="btn deleteitem"><span class="icon-trash icon-1x"></span>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Guides and Manuals</td>
+                        <td>5</td>
+                        <td><i class="icon-check icon-2"></i></td>
+                        <td>
+                            <button class="btn edititem"><span class="icon-pencil icon-1x"></span>Edit</button>
+                            <button class="btn deleteitem"><span class="icon-trash icon-1x"></span>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Maintenance</td>
+                        <td>3</td>
+                        <td></td>
+                        <td>
+                            <button class="btn edititem"><span class="icon-pencil icon-1x"></span>Edit</button>
+                            <button class="btn deleteitem"><span class="icon-trash icon-1x"></span>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Technical Bulletins</td>
+                        <td>3</td>
+                        <td><i class="icon-check icon-2"></i></td>
+                        <td>
+                            <button class="btn edititem"><span class="icon-pencil icon-1x"></span>Edit</button>
+                            <button class="btn deleteitem"><span class="icon-trash icon-1x"></span>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="alert-error modal hide fade" id="deletedialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Are you sure?</h3>
+    </div>
+    <div class="modal-body">
+        Deleting this item will also remove all linked News Articles. Are you sure?
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
+        <button class="btn btn-primary">Yes</button>
+    </div>
+</div>
+
+<div class="modal hide fade" id="editdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modify this KB Category</h3>
+    </div>
+    <div class="modal-body">
+        <form action="#" method="get">
+            <label for="displayname">Category Name</label>
+            <input type="text" class="input-large" id="displayname" name="displayname" />
+
+            <label class="class2 control-label fields" for="unitid">Active?</label>
+            <div class="class10">
+                <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                    <button type="button" class="btn">Yes</button>
+                    <button type="button" class="btn btn-success active">No</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+<div class="modal-footer">
+    <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+</div>
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("#newitem").click(function () {
+            $("#editdialog #displayname").val("");
+            $("#editdialog").modal("show");
+        });
+
+        $(".edititem").click(function () {
+            $("#editdialog #displayname").val("Guides and Manuals");
+            $("#editdialog").modal("show");
+        });
+
+        $(".deleteitem").click(function () {
+            //  show modal to delete tag
+            $("#deletedialog").modal("show");
+        });
+
+        $(".modal-footer .btn-primary").click(function () {
+            toastr.success("Those changes were successfully updated.", "Webtrieve9 Says");
+            $(".modal").modal("hide");
+        });
+
+        $(".edititem").attr("title", "Click this icon to edit this tag").tooltip();
+        $(".deleteitem").attr("title", "Click this icon to delete this tag").tooltip();
+
+        $(".btn-toggle-radio button").click(function () {
+            $(this).siblings().removeClass("active btn-success");
+            $(this).addClass("active btn-success");
+        });
+
+    });
+</script>

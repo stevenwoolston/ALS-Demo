@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "Sample Summary Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/js/bootstrap-wysihtml5.js"></script>
+    <link href="~/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="/search/">Search</a> <span class="divider">/</span></li>
+    <li><a href="/search/searchresults/smpl">Search Results</a> <span class="divider">/</span></li>
+    <li class="active">Sample Summary Report</li>
+</ul>
+
+<div class="container-fluid">
+    <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="/sample/BulkTopUpList/" method="post" name="searchform">
+        <fieldset>
+            <legend>Add Recipients</legend>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Email Recipients</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                            <button class="btn btn-lookup viewcontacts" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Email CC Recipients</label>
+                    <div class="controls">
+                        <input type="email" class="textbox span12" placeholder="No selections" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Email Subject</label>
+                    <div class="controls">
+                        <input type="text" class="textbox span12" placeholder="Sample Summary Report" value="Webtrieve Sample Summary Report" />
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Sample ID</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Submitted By</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit ID</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Compartment</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Recommendation</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Additional Comments</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Fluid Category</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Problem Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        while (i < 5)
+                        {
+                            i += 1;
+                        <tr>
+                            <td><a href="#" title="Click here to view the Sample Report">12345654</a></td>
+                            <td>Tribology Mining NL
+                                <button class="icon-question-sign btn btn-link popover-element" data-toggle="popover" data-placement="right" 
+                                    data-original-title="Unit Details (click to view)" 
+                                    data-content="Serial No:&lt;br/&gt;Make: Hitachi&lt;br/&gt;Model: EX1200-5&lt;br/&gt;Site:"></button>
+                            </td>
+                            <td>
+                                <a href="/search/searchresults/unit">Demo Coolant</a>
+                                <button class="icon-question-sign btn btn-link popover-element" data-toggle="popover" data-placement="right" 
+                                    data-original-title="Unit Details (click to view)" 
+                                    data-content="Serial No:&lt;br/&gt;Make: Hitachi&lt;br/&gt;Model: EX1200-5&lt;br/&gt;Site:"></button>
+                            </td>
+                            <td><a title="Click to view Compartment" href="#">Coolant System</a>
+                                <button class="icon-question-sign btn btn-link popover-element" data-toggle="popover" data-placement="right" 
+                                    data-original-title="Unit Details (click to view)" 
+                                    data-content="Serial No:&lt;br/&gt;Make: Hitachi&lt;br/&gt;Model: EX1200-5&lt;br/&gt;Site:"></button>
+                            </td>
+                            <td>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</td>
+                            <td><textarea rows="4" class="textarea span9"></textarea>
+                                <button class="btn btn-link zoom-comments"><i class="icon-zoom-in" title="Click to Zoom"></i></button>
+                            </td>
+                            <td>Caution</td>
+                            <td>Wear</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <button class="btn btn-primary"><i class="icon-envelope"></i>&nbsp;Send Report</button>
+                            <button class="btn btn-info"><i class="icon-book"></i>&nbsp;View Address Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="contactdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Summary Report Contacts</h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_NotificationContacts");
+    </div>
+    <div class="modal-footer">
+        <button class="btn"><i class="icon-cloud-download"></i>Download</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+
+</div>
+
+<div class="modal hide fade" id="editdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Sample Summary Comments</h3>
+    </div>
+    <div class="modal-body">
+        <form action="#" method="get">
+            <label for="displayname">Further Comments</label>
+            <textarea class="richtext" style="width: 95%" id="articlebody"></textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $("[title]").tooltip();
+        $(".popover-element").popover({
+            html: true
+        });
+
+        $(".viewcontacts").click(function () {
+            $("#contactdialog")
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+
+            $("#contactdialog .modal-body").css({ "min-height": "590px" });
+        });
+
+        $(".richtext").wysihtml5({
+            "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": true, //Button to insert a link. Default true
+            "color": false //Button to change color of font
+        });
+
+        $(".zoom-comments").click(function () {
+            $("#editdialog").modal("show");
+        });
+
+    });
+</script>
+

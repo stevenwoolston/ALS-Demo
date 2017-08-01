@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/bundles/css/themes/base/css")
+    @Styles.Render("~/bundles/css/bootstrap")
+    @Styles.Render("~/bundles/css/site")
+
+    @Scripts.Render("~/bundles/js/jquery")
+    @Scripts.Render("~/bundles/js/modernizr")
+    @Scripts.Render("~/bundles/js/bootstrap")
+    @Scripts.Render("~/bundles/js/controls")
+
+    @RenderSection("Javascript", required: false)
+</head>
+<body class="admin">
+    <header>
+        @Html.Partial("_TopNav")
+    </header>
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a> <span class="divider">/</span></li>
+        <li class="active">Administration</li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2 nav shaded rounded-border">
+                <ul class="nav nav-list nav-pills nav-stacked">
+                    <li class="nav-header">Your Configuration
+                        <ul class="nav nav-pills nav-stacked">
+                            @Html.MenuLink("Change Your Details", "UpdateUserProfile", "Admin")
+                            @Html.MenuLink("Change Your Password", "ChangeUserPassword", "Admin")
+                            @Html.MenuLink("Reset Your Password", "UserPasswordReset", "Admin")
+                            @Html.MenuLink("Manage Address Book", "UserAddressBook", "Admin")
+                            @Html.MenuLink("Show/Hide Menus", "UserMenuAccess", "Admin")
+                            @Html.MenuLink("Maintain Tags", "MaintainTags", "User")
+                            @Html.MenuLink("Regional Settings", "UserRegionalSettings", "Admin")
+                            @Html.MenuLink("Colour Settings", "ChangeEntityColours", "Admin")
+                            @Html.MenuLink("Label Settings", "SiteLabels", "Admin")
+                        </ul>
+                    </li>
+                    <li class="nav-header">Samples
+                        <ul class="nav nav-pills nav-stacked">
+                            @Html.MenuLink("Thresholds", "ThresholdConfig", "Admin")
+                            @Html.MenuLink("Auto-Clear", "SampleConfig", "Admin")
+                        </ul>
+                    </li>
+                    <li class="nav-header">System
+                        <ul class="nav nav-pills nav-stacked">
+                            @Html.MenuLink("KB Categories", "NewsArticleTypes", "Admin")
+                            @Html.MenuLink("KB Articles", "NewsArticles", "Admin")
+                            @Html.MenuLink("Site Users", "UserManagement", "Admin")
+                            @Html.MenuLink("Set Default Home Page", "UserChangeStartPage", "Admin")
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="span10">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_Footer")
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+    <thead>
+        <tr>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">&nbsp;</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Contact Type</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Contact Name</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Method</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Severities</th>
+            <th role="columnheader" class="listactions pri-bg-colour pri-fg-colour">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 0;
+            while (i < 5)
+            {
+                i += 1;
+            <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>End User</td>
+                <td>Mouse, Michael</td>
+                <td>Cipac Services</td>
+                <td>Online</td>
+                <td>
+                    <i class="icon-flag" style="color:green" title="Normal"></i>
+                    <i class="icon-flag" style="color:red" title="Severe"></i>
+                    <i class="icon-flag" style="color:orange" title="Abnormal"></i>
+                    <i class="icon-flag" style="color:yellow" title="Caution"></i>
+                </td>
+                <td>
+                    <button class="btn"><i class="icon-email"></i>Email</button></td>
+            </tr>
+            }
+
+            i = 0;
+            while (i < 3)
+            {
+                i += 1;
+            <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>Distributor User</td>
+                <td>Mouse, Minnie</td>
+                <td>Cipac Services</td>
+                <td>Email PDF</td>
+                <td>
+                    <i class="icon-flag" style="color:green" title="Normal"></i>
+                    <i class="icon-flag" style="color:red" title="Severe"></i>
+                </td>
+                <td>
+                    <button class="btn"><i class="icon-email"></i>Email</button></td>
+            </tr>
+            }
+
+            i = 0;
+            while (i < 3)
+            {
+                i += 1;
+            <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td>Territory Manager</td>
+                <td>Duck, Daffy</td>
+                <td>Cipac Services</td>
+                <td>Email PDF</td>
+                <td>
+                    <i class="icon-flag" style="color:green" title="Normal"></i>
+                </td>
+                <td>
+                    <button class="btn"><i class="icon-email"></i>Email</button></td>
+            </tr>
+            }
+        }
+
+    </tbody>
+</table>

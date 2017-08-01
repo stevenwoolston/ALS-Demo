@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Results";
+    Layout = "~/Views/Shared/_KBLayout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/knowledgebase/">Home</a> <span class="divider">/</span></li>
+    <li class="active">Knowledgebase Results</li>
+</ul>
+
+<table class="container-fluid table table-striped">
+    <thead>
+        <tr>
+            <th>
+                <div class="span10">
+                    You searched for: <b>Lorem Ipsum</b>
+                </div>
+                <div class="span2 pull-right">
+                    6 matches found
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+    
+            var Total = 0;
+            while (Total < 6)
+            {
+                Total += 1;
+      
+            <tr>
+                <td>
+                    <div class="row-fluid">
+                        <h4 class="span10"><a href="/knowledgebase/article/1" title="Click this link to view the Article">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></h4>
+                        <div class="span2 text-right">Created: 01 April, 2013</div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+                    </div>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<script>
+    $(function () {
+        $("[title]").tooltip();
+    });
+</script>

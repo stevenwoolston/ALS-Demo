@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Threshold Configuration";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<form id="sampleconfig" name="sampleconfig" action="/admin/SampleConfig/" method="post" class="shaded rounded-border padding-large form-horizontal">
+    <h5>Enter values for the individual threshold measurements. These values are used to display incongruencies at sample submission.</h5>
+
+    <div class="control-group warning">
+        <label class="control-label text-error" for="hours">Hours</label>
+        <div class="controls">
+            <input class="input-mini" type="text" id="hours" name="hours" placeholder="0" />
+            <span class="help-inline">You will not receive threshold messages if this value is empty.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="miles">Miles</label>
+        <div class="controls">
+            <input class="input-mini" type="text" id="miles" name="miles" value="8" />
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="kms">Kilometres</label>
+        <div class="controls">
+            <input class="input-mini" type="text" id="kms" name="kms" value="10" />
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+
+        $("#sampleconfig").validate({
+            rules: {
+                submissionthreshold: "required"
+            },
+            messages: {
+                submissionthreshold: {
+                    required: "You must enter a threshold value"
+                }
+            }
+        });
+
+        $("#sampleconfig").on("submit", function (e) {
+            var isvalidate = $("#sampleconfig").valid();
+            if (isvalidate) {
+                e.preventDefault();
+                toastr.success("Your sample configuration settings were successfully updated.", "Webtrieve9 Says")
+            }
+        });
+
+        $("[title]").tooltip();
+    });
+</script>

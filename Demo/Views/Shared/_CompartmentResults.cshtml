@@ -1,0 +1,53 @@
+﻿<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+    <thead>
+        <tr>
+            <td class="pri-bg-colour pri-fg-colour">
+                <input type="checkbox" /></td>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Last Sampled</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Severity</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">SIF No</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Type</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit ID</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Description</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">UIN No</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Make</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Model</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Serial Number</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Company Name</th>
+            <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Grade</th>
+            <th role="columnheader" class="pri-bg-colour pri-fg-colour">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 0;
+            int totalsmpl;
+            while (i < 65)
+            {
+                i += 1;
+                totalsmpl = i * 3;
+            <tr>
+                <td>
+                    <input type="checkbox" /></td>
+                <td><a href="/sample/details/" title="Click to view latest Sample">01/01/2013</a></td>
+                <td>Normal</td>
+                <td>7688161</td>
+                <td>Hydraulique</td>
+                <td>Noute</td>
+                <td>Hydraulique</td>
+                <td>000B7B5</td>
+                <td>BVA</td>
+                <td>.</td>
+                <td></td>
+                <td>Cipac Services</td>
+                <td>10W40</td>
+                <td>
+                    <a href="/equipment/EditCompartment/" class="btn"><i class="icon-edit"></i>Edit</a>
+                    <a href="/equipment/EditCompartment/" class="btn"><i class="icon-copy"></i>Clone</a>
+                    <button class="edititem btn"><i class="icon-remove"></i>Delete</button>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Change Your Start Page";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<form id="changestartpage" name="changestartpage" action="/admin/UserChangeStartPage/" method="post" class="shaded rounded-border padding-large">
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="home" value="home" checked>
+        Home
+    </label>
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="search" value="search">
+        Search
+    </label>
+
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="samples" value="samples">
+        New Samples
+    </label>
+
+    <label class="radio">
+        <input type="radio" name="optionsRadios" id="dashboard" value="dashboard">
+        Dashboard
+    </label>
+
+    <div class="form-actions">
+        <div class="pull-right">
+            <input type="reset" value="Clear" class="btn-link" />&nbsp;&nbsp;
+        <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(function () {
+        $("#changestartpage").on("submit", function (e) {
+            e.preventDefault();
+            toastr.success("Your home page was successfully updated.", "Webtrieve9 Says")
+        });
+    });
+</script>

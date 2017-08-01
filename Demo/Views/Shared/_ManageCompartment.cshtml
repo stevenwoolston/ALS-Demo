@@ -1,0 +1,148 @@
+﻿<form id="update" method="get">
+
+    <div class="row-fluid">
+        <label class="span2">Unit</label>
+        <div class="span10">
+            <a href="/equipment/editunit/" title="Click to view Unit Details">Noute</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <label class="span2" for="cmpttype">Type</label>
+        <div class="span3">
+            <select id="cmpttype" name="cmpttype">
+                <option>Compartment Type</option>
+                <option>Compartment Type</option>
+                <option>Compartment Type</option>
+            </select>
+        </div>
+
+        <label class="span2">UIN Number</label>
+        <div class="span3">
+            00134BF
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="make">Make</label>
+        <div class="span3">
+            <input type="text" id="make" name="make" class="textbox input-medium" placeholder="Compartment Make" />
+        </div>
+
+        <label class="span2" for="model">Model</label>
+        <div class="span3">
+            <input type="text" id="model" name="model" class="textbox input-medium" placeholder="Compartment Model" />
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="serialnumber">Serial Number</label>
+        <div class="span3">
+            <input type="text" id="serialnumber" name="serialnumber" class="textbox input-medium" placeholder="Serial #" />
+        </div>
+
+        <label class="span2" for="location">Location</label>
+        <div class="span3">
+            <input type="text" id="location" name="location" class="textbox input-medium" placeholder="Location" />
+        </div>
+    </div>
+
+    <div class="row-fluid">
+
+        <label class="span2" for="age">Age Measure</label>
+        <div class="span3">
+            <select id="age" name="age" class="input-small">
+                <option value=""></option>
+                <option value="Date">Date</option>
+                <option value="Days">Days</option>
+                <option value="Hours">Hours</option>
+                <option value="Hrs" selected="">Hrs</option>
+                <option value="Kms">Kms</option>
+                <option value="Ltr">Ltr</option>
+                <option value="Mi">Mi</option>
+                <option value="Miles">Miles</option>
+                <option value="Min">Min</option>
+                <option value="Mths">Mths</option>
+                <option value="Sec">Sec</option>
+                <option value="Tonne">Tonne</option>
+                <option value="Yrs">Yrs</option>
+            </select>
+        </div>
+
+        <label class="span2" for="resample">Re-sample Period</label>
+        <div class="span3">
+            <input type="text" id="resample" name="resample" class="textbox input-medium" placeholder="Re-sample Period" />
+        </div>
+
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="power">Power Rating</label>
+        <div class="span3">
+            <input type="text" id="power" name="power" value="" class="input-small" placeholder="Power Rating" />
+            <select class="input-small">
+                <option value=""></option>
+                <option value="Date">HP</option>
+            </select>
+        </div>
+
+        <label class="span2" for="pointid">Sample Point ID</label>
+        <div class="span3">
+            <input type="text" id="pointid" name="pointid" value="" class="input-small" placeholder="Sample Point" />
+
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="fluid">Default Fluid</label>
+        <div class="span3">
+            <select id="fluid" name="fluid">
+                <option value=""></option>
+                <option value="5214">76 Lubricants \ SAE 15W40 \ Guardol ECT</option>
+                <option value="4810">76 Lubricants \ SAE 15W40 \ Guardol QLT</option>
+                <option value="4901">76 Lubricants \ SAE 80W90 \ MP GL</option>
+                <option value="13745">Airtech Inc \ ISO 100 \ Max 2000</option>
+                <option value="5819">Castrol \ ATF \ TranSynd</option>
+            </select>
+        </div>
+
+        <label class="span2" for="hasfilter">Has a Filter?</label>
+        <div class="span3">
+            <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                <button type="button" class="btn">Yes</button>
+                <button type="button" class="btn btn-success active">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="capacity">Capacity</label>
+        <div class="span3">
+            <input type="text" id="capacity" name="capacity" class="textbox input-medium" placeholder="Capacity" />
+            <select class="input-small">
+                <option value=""></option>
+                <option value="gal" selected="">gal</option>
+                <option value="gals">gals</option>
+                <option value="Ltrs">Ltrs</option>
+                <option value="mL">mL</option>
+                <option value="pt">pt</option>
+                <option value="qt">qt</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row-fluid">
+        <label class="span2" for="articlebody">Comment:</label>
+        <div class="span8">
+            <textarea class="span10 richtext" id="articlebody"></textarea>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <div class="pull-right">
+            <button type="reset" class="btn btn-link">Clear</button>
+            <button id="save" class="btn btn-primary"><i class="icon-save"></i>Save Changes</button>
+        </div>
+    </div>
+
+</form>

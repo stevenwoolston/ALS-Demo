@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Management Reports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a><span class="divider">/</span></li>
+    <li class="active">Management Reports</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="accordion" id="reporttype">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#reporttype" href="#collapseOne">Condition History</a>
+                    </div>
+                    <div id="collapseOne" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Compartment Type</a></li>
+                                <li><a href="#">Make/Model</a></li>
+                                <li><a href="#">Month</a></li>
+                                <li><a href="#">Quarter</a></li>
+                                <li><a href="#">Unit</a></li>
+                                <li><a href="#">Year</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#reporttype" href="#collapseTwo">Fluid Age and Condition</a>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Compartment Type</a></li>
+                                <li><a href="#">Make/Model</a></li>
+                                <li><a href="#">Unit</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#reporttype" href="#collapseThree">Turn Around Time</a>
+                    </div>
+                    <div id="collapseThree" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Sampled between (By Year)</a></li>
+                                <li><a href="#">Sampled between (By Range)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#reporttype" href="#collapseFour">Custom Management Report</a>
+                    </div>
+                    <div id="collapseFour" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                            No Selections Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span8">
+            <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="#" method="post" name="searchform">
+                <fieldset>
+                    <legend>Report Criteria</legend>
+
+                    <div class="controls-row control-group">
+                        <label class="control-label fields" for="unitid">Saved Searches</label>
+                        <div class="controls">
+                            <select>
+                                <option>My Current Search</option>
+                                <option>Best Compartment Search</option>
+                                <option>Ipsum Lorem Saved Search</option>
+                            </select>
+                            <a href="/search/" class="btn"><i class="icon-edit"></i>&nbsp;Modify Search</a>
+                        </div>
+                    </div>
+
+                    <div class="controls-row control-group">
+                        <label class="control-label fields" for="unitid">Report</label>
+                        <div class="controls">
+                            <select>
+                                <option>Condition History</option>
+                                <option>Fluid Age and Condition</option>
+                                <option>Turn Around Time</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="controls-row control-group">
+                        <label class="control-label fields" for="unitid">Group By</label>
+                        <div class="controls">
+                            <select>
+                                <option>Compartment Type</option>
+                                <option>Fluid Age and Condition</option>
+                                <option>Turn Around Time</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="controls-row control-group">
+                        <label class="control-label fields" for="unitid">Report Format</label>
+                        <div class="controls">
+                            <select>
+                                <option>PDF</option>
+                                <option>Fluid Age and Condition</option>
+                                <option>Turn Around Time</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="pull-right">
+                            <button class="btn btn-link">Clear</button>
+                            <button id="btn-run-report" class="btn btn-primary"><i class="icon-search"></i>&nbsp;Run Report</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+        <div class="span2"></div>
+    </div>
+    <script>
+        $(function () {
+            $("#btn-run-report").click(function (e) {
+                var errormessage = "You have no search criteria in memory. Please run a search before trying to generate this report.<br/>";
+                errormessage += "Click <a href='/search/'>here to go to the Search screen</a> and run a search using the <i>View as Management Report</i> option.";
+                toastr.error(errormessage, "Webtrieve9 Says");
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>

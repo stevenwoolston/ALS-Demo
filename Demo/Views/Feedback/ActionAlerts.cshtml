@@ -1,0 +1,278 @@
+﻿@{
+    ViewBag.Title = "Action Alerts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Javascript {
+    <script src="~/js/wysihtml5-0.3.0.min.js"></script>
+    <script src="~/js/bootstrap-wysihtml5.js"></script>
+    <link href="~/css/bootstrap-wysihtml5.css" rel="stylesheet" />
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+}
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li>Action Alerts</li>
+</ul>
+
+<div class="container-fluid">
+    <form class="row-fluid form-horizontal shaded rounded-border" id="searchform" action="/feedback/actionalerts" method="post" name="searchform">
+        <fieldset>
+            <legend>Search for Alerts</legend>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Companies</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="1 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Units</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Clear Selections" type="button"><i class="icon-remove"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Compartments</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Clear Selections" type="button"><i class="icon-remove"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="controls-row controls">
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Show Feedback</label>
+                    <div class="controls">
+                        <div class="btn-group btn-toggle-radio" data-toggle="buttons-radio">
+                            <button type="button" class="btn btn-success active">Pending Feedback</button>
+                            <button type="button" class="btn">Actioned</button>
+                            <button type="button" class="btn">All</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Problem Code</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4 control-group">
+                    <label class="control-label fields" for="unitid">Severity Code</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small" placeholder="0 Item(s)" />
+                            <button class="btn btn-lookup" data-toggle="tooltip" title="Click for Lookup" type="button"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="controls-row controls">
+
+                <div class="span8 control-group">
+                    <label class="control-label fields" for="unitid">Alert Date</label>
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small datepicker" placeholder="From Date" />
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                        </div>
+                        &nbsp; 
+                        <div class="input-append">
+                            <input type="text" class="textbox input-small datepicker" placeholder="To Date" />
+                            <span class="add-on"><i class="icon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <div class="pull-right">
+                    <button class="btn btn-link">Clear</button>
+                    <button class="btn btn-primary"><i class="icon-search"></i>&nbsp;Search</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatable">
+                <thead>
+                    <tr>
+                        <td class="pri-bg-colour pri-fg-colour">
+                            <input type="checkbox" /></td>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Actioned</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Date Alerts</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Tracking No</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Severity</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Problem Code</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Compartment</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour">Unit No</th>
+                        <th role="columnheader" class="sorting pri-bg-colour pri-fg-colour"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var i = 0;
+                        while (i < 65)
+                        {
+                            i += 1;
+                        <tr>
+                            <td>
+                                <input type="checkbox" /></td>
+                            <td>01/01/2013</td>
+                            <td>01/01/2013</td>
+                            <td><a href="/sample/details/" class="btn-link">7688161</a></td>
+                            <td>Abnormal</td>
+                            <td>ISO</td>
+                            <td>Hydraulique&nbsp;<a href="#" class="btn-link"><i class="icon-question-sign"></i></td>
+                            <td>Socam&nbsp;<a href="#" class="btn-link"><i class="icon-question-sign"></i></a></td>
+                            <td>
+                                <button href="/feedback/details/" class="btn btn-newfeedback"><i class="icon-comments"></i>&nbsp;Add Feedback</button>
+                            </td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="span2">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="nav nav-list quick-search-sidenav rounded-border">
+                        <div>
+                            <legend><i class="icon-lightbulb"></i>&nbsp;Further Actions</legend>
+                            <button class="btn btn-primary"><i class="icon-edit"></i>&nbsp;Mark as "Not Required"</button>
+                            <button class="btn btn-info"><i class="icon-print"></i>&nbsp;Print Selection</button>
+                            <button id="btn-newfeedback" class="btn-newfeedback btn btn-info"><i class="icon-comment"></i>Add Multiple Feedback</button>
+                            <a href="/feedback/search/" class="btn btn-info"><i class="icon-search"></i>Feedback History Search</a>
+                            <div class="btn-group">
+                                <button class="btn btn-info"><i class="icon-cloud-download"></i>&nbsp;Export Results As XML</button>
+                                <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export Results As CSV</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export Selection As XML</a></li>
+                                    <li><a href="#"><i class="icon-cloud-download"></i>&nbsp;Export Selection As CSV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="lookupdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Lookup Data</h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_Lookup");
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<div class="modal hide fade" id="feedbackdialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Add Feedback</h3>
+    </div>
+    <div class="modal-body">
+        @Html.Partial("_NewFeedback")
+    </div>
+    <div class="modal-footer">
+        <input class="btn btn-link" type="reset" value="Clear" />
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save Changes</button>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+        var dataTable = $(".datatable").dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": false,
+            "sDom": 'RC<"clear">lfrtip'
+        });
+        $(".ColVis_Button").addClass("btn").text("Show / Hide Columns").css({ "margin-left": "5px" });
+
+        $(".btn-lookup").click(function () {
+
+            $("#lookupdialog .datatable").css({ "width": "100%" });
+
+            $("#lookupdialog")
+                .draggable()
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+
+            $("#lookupdialog .modal-body").css({ "min-height": "590px" });
+
+        });
+
+        $(".btn-newfeedback").click(function () {
+            //  show modal to delete tag
+            $("#feedbackdialog")
+                .draggable()
+                .css({ "width": "900px", "margin-left": "-450px" })
+                .modal("show");
+            $("#feedbackdialog .modal-body").css({ "min-height": "650px" });
+        });
+
+        $(".richtext").wysihtml5({
+            "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+            "emphasis": true, //Italics, bold, etc. Default true
+            "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+            "html": false, //Button which allows you to edit the generated HTML. Default false
+            "link": true, //Button to insert a link. Default true
+            "color": false //Button to change color of font
+        });
+
+        $("[title]").tooltip();
+        $(".datepicker").datepicker();
+
+        $(".btn-toggle-radio button").click(function () {
+            $(this).siblings().removeClass("active btn-success");
+            $(this).addClass("active btn-success");
+        });
+
+    });
+</script>
